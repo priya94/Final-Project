@@ -9,10 +9,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
-
 @Entity
 @Table(name = "category")
-
 @Component
 public class Category {
 
@@ -21,23 +19,18 @@ public class Category {
 	private String name;
 	private String description;
 
-	
-
 	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
 	private Set<Product> product;
 	public Set<Product> getProduct() {
 		return product;
 	}
-
-	public void setProduct(Set<Product> product) {
+    public void setProduct(Set<Product> product) {
 		this.product = product;
 	}
-
-	public String getId() {
+    public String getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+    public void setId(String id) {
 		this.id = id;
 	}
 

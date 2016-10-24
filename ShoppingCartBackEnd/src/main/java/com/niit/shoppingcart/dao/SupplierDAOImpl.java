@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Supplier;
 
 @Repository("supplierDAO")
@@ -23,7 +24,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 	@Transactional
 	public Supplier get(String id) {
-		String hql = "from Supplier where id=" + "'" + id + "'";
+		String hql = "from Supplier where id='"+id+"'";
 		@SuppressWarnings("unchecked")
 		Query<Supplier> query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -56,6 +57,20 @@ public class SupplierDAOImpl implements SupplierDAO {
 		List<Supplier> listSupplier = (List<Supplier>) sessionFactory.getCurrentSession().createCriteria(Supplier.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listSupplier;
+	}
+	@Transactional
+	public Supplier getByName(String name) {
+		String hql = "from Supplier where name=" + "'"+ name+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Supplier> list = (List<Supplier>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		
+		return null;
 	}
 
 }

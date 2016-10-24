@@ -9,8 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Entity
 @Table
@@ -20,7 +23,18 @@ public class Product {
 	private String id;
 	private String name;
 	private String description;
-	private String price;
+	private int price;
+	
+	@Transient
+	private MultipartFile image;
+	
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -83,12 +97,23 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getPrice() {
+
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public void setCategory_id(String id) {
+	
+		
+	}
+
+	public void setSupplier_id(String id) {
+		
+		
 	}
 
 }

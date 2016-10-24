@@ -23,17 +23,17 @@ public class CartTest {
 		ProductDAO productDAO = (ProductDAO) context.getBean("productDAO");
 		UserDAO userDAO = (UserDAO) context.getBean("userDAO");
 
-		cart.setId("CART01");
-		cart.setPrice(100);
-		cart.setQuantity(2);
-		cart.setTotal(200);
-		cart.setStatus("AVAILABLE");
-
-		cart.setProduct(productDAO.get("PRD001"));
+		
+		cart.setPrice(1000);
+		cart.setQuantity(1);
+		cart.setStatus('A');
+        cart.setTotal(1000);
+		cart.setProduct(productDAO.get("PRD006"));
 		cart.setUser(userDAO.get("USR001"));
 
 		cartDAO.saveOrUpdate(cart);
-
+		System.out.println("Total : " + cartDAO.getTotal("USR001"));
+		cartDAO.checkOut("USR001");
 		System.out.println("updated");
 	}
 

@@ -26,7 +26,7 @@ public class ProductTest {
 		product.setId("PRD001");
 		product.setName("PRDNameABCD");
 		product.setDescription("PRDDescPQRST");
-		product.setPrice("50000");
+		product.setPrice(7000);
 		product.setCategory(categoryDAO.get(",CTG002"));
 		product.setSupplier(supplierDAO.get(",SP002"));
 

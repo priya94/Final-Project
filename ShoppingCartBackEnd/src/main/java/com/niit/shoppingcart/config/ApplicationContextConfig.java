@@ -21,7 +21,6 @@ import com.niit.shoppingcart.model.User;
 import com.niit.shoppingcart.model.UserDetails;
 import com.niit.shoppingcart.model.Cart;
 
-
 @Configuration
 @ComponentScan("com.niit.shoppingcart")
 @EnableTransactionManagement
@@ -43,8 +42,7 @@ public class ApplicationContextConfig {
 	   properties.put("hibernate.show_sql", "true");
 	   properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 	   return properties;
-	   
-   }
+	   }
    
    @Autowired
    @Bean(name="sessionFactory")

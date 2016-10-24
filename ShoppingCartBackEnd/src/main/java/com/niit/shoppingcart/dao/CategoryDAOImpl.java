@@ -57,4 +57,18 @@ public class CategoryDAOImpl implements CategoryDAO {
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listCategory;
 	}
+	@Transactional
+	public Category getByName(String name) {
+		String hql = "from Category where name=" + "'"+ name+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Category> list = (List<Category>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		
+		return null;
+	}
 }

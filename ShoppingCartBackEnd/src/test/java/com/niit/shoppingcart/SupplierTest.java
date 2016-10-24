@@ -14,7 +14,7 @@ public class SupplierTest {
 		Supplier supplier = (Supplier) context.getBean("supplier");
 		
 		
-	    supplier.setId("SP002");
+	    supplier.setId("SP011");
 		supplier.setName("SPNameABCD");
 		supplier.setAddress("SPAddressPQRST");
 	    supplierDAO.saveOrUpdate(supplier);
