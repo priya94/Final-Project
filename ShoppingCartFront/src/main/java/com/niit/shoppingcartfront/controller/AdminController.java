@@ -39,13 +39,14 @@ public class AdminController {
 	
 	
 
-	@RequestMapping("/manageCatagories")
+	@RequestMapping("/manageCategories")
 	public ModelAndView category() {
 
 		ModelAndView mv = new ModelAndView("/home");
 		mv.addObject("category", category);
 		mv.addObject("isIsadminClickedCategories", "true");
 		mv.addObject("categoryList", categoryDAO.list());
+		System.out.println("catgry mng");
 		return mv;
 	}
 
@@ -54,8 +55,11 @@ public class AdminController {
 
 		ModelAndView mv = new ModelAndView("/home");
 		mv.addObject("product", product);
+		mv.addObject("categoryList", categoryDAO.list());
 		mv.addObject("isIsadminClickedProducts", "true");
 		mv.addObject("productList", productDAO.list());
+		mv.addObject("supplierList", supplierDAO.list());
+		System.out.println("prdct mng");
 		return mv;
 	}
 
@@ -66,6 +70,7 @@ public class AdminController {
 		mv.addObject("supplier", supplier);
 		mv.addObject("isIsadminClickedSuppliers", "true");
 		mv.addObject("supplierList", supplierDAO.list());
+		System.out.println("spplr mng");
 		return mv;
 	}
 

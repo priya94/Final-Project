@@ -1,5 +1,7 @@
 package com.niit.shoppingcartfront.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -55,7 +57,7 @@ public class UserController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView ValidUser(@RequestParam(value = "name") String name,
 			@RequestParam(value = "password") String password, HttpSession session) {
-
+		System.out.println("usr cntrllr login");
 		log.debug("Starting of the method login");
 		log.info("name is {}  password is {}", name , password);
 		
@@ -64,12 +66,14 @@ public class UserController {
 		System.out.println("isValidUser="+isValidUser+"name="+name+"password="+password);
 
 		if (isValidUser == true) {
-
+			System.out.println("usr cntrlr valid usr");
 			user = userDAO.get(name);
-			session.setAttribute("loggedInUser", user.getName());
+			session.setAttribute("loggedInUser", user.getId());
 			System.out.println(user.getName() + "logged in");
 
 			if (user.isIsadmin()==true) {
+				System.out.println("usr cntrlr valid admin");
+		
 				mv.addObject("isIsadmin", "true");
 				System.out.println(user.getName() + ":admin logged in");
 			} else {
@@ -89,6 +93,7 @@ public class UserController {
 
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpServletRequest request, HttpSession session) {
+		System.out.println("logout");
 		ModelAndView mv = new ModelAndView("/home");
 		session.invalidate();
 		session = request.getSession(true);
@@ -107,5 +112,65 @@ public class UserController {
 		return mv;
 	}
 
+	/*-------------------admin---------------*/
+	 @RequestMapping(value = "/admin**", method = RequestMethod.GET)
+		public ModelAndView adminPage() {
+
+			ModelAndView model = new ModelAndView();
+			model.addObject("title", "Spring Security Hello World");
+			model.addObject("message", "This is protected page!");
+			model.setViewName("admin");
+
+			return model;
+
+		}
+		@RequestMapping(value = "/securityLogin", method = RequestMethod.GET)
+		public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+				@RequestParam(value = "logout", required = false) String logout) {
+			log.debug("Start: method securityLogin");
+
+			ModelAndView model = new ModelAndView();
+			if (error != null) {
+				model.addObject("error", "Invalid username and password!");
+			}
+
+			if (logout != null) {
+				model.addObject("msg", "You've been logged out successfully.");
+			}
+			model.setViewName("securityLogin");
+			log.debug("End: method securityLogin");
+
+			return model;
+
+		}
+		@RequestMapping(value = "/403", method = RequestMethod.GET)
+		public ModelAndView accesssDenied(Principal user) {
+
+			ModelAndView model = new ModelAndView();
+
+			if (user != null) {
+				model.addObject("msg", "Hi " + user.getName()
+				+ ", you do not have permission to access this page!");
+			} else {
+				model.addObject("msg",
+				"You do not have permission to access this page!");
+			}
+
+			model.setViewName("403");
+			return model;
+
+		}
+		
+		@RequestMapping(value = {"/welcome**" }, method = RequestMethod.GET)
+		public ModelAndView defaultPage() {
+			log.debug("Start: method defaultPage");
+			ModelAndView model = new ModelAndView();
+			model.addObject("title", "Spring Security Login Form - Database Authentication");
+			model.addObject("message", "This is default page!");
+			model.setViewName("hello");
+			log.debug("End: method defaultPage");
+			return model;
+			
+		}
 
 }
