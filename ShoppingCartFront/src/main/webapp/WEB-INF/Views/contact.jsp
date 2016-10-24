@@ -8,22 +8,7 @@
 
 <html>
 <head>
-<title>Login Page</title>
-
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript">
-	
-	
-	
-	
-
-
-
+<title>Contact Page</title>
 </script>
 <!-- //for-mobile-apps -->
 <link href="resources\css\bootstrap.css" rel="stylesheet"
@@ -61,65 +46,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
-	<!-- header -->
+<!-- header -->
 	<div class="header">
 		<div class="container">
-
-
-
-
-			<div class="clearfix"></div>
+			
+			
+						
+				
+				<div class="clearfix"> </div>
+			</div>
 		</div>
 	</div>
-	</div>
-	<!-- //header -->
-	<!-- breadcrumbs -->
+<!-- //header -->
+<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft"
-				data-wow-delay=".5s">
-
-				<li class="active">Login Page</li>
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				
+				<li class="active">Contact Page</li>
 			</ol>
 		</div>
 	</div>
-	<!-- //breadcrumbs -->
-	<!-- login -->
-	<div class="login">
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Login Form</h3>
-			<p class="est animated wow zoomIn" data-wow-delay=".5s">Please
-				enter with your credentials.</p>
-			<div class="login-form-grids animated wow slideInUp"
-				data-wow-delay=".5s">
-				<c:url var="action" value="/login"></c:url>
-				<form:form action="${action}" method='POST'>
-					<table>
-						<tr>
-							<td>User Name:</td>
-							<td><input type="text" name="name" autofocus required="name"
-								placeholder="Enter Username" /></td>
-						</tr>
-
-						<tr>
-							<td>Password:</td>
-							<td><input type="password" name="password" autofocus
-								required="password" placeholder="Enter Password" /></td>
-						</tr>
-						<tr>
-							<td><input type="submit" value="Login"></td>
-						</tr>
-
-					</table>
-					
-				</form:form>
-				</form>
-			</div>
-
-		</div>
+	
+	<div><p>Thank you for your interest in Cool Outlet's services.Please contact us in the number provided below for Queries</p>
+	<p>PH:0480-2723267</p>
+	<p>MOB:9446738905</p>
 	</div>
-	<!-- //login -->
-
-
-</body>
+	
+	
+	
+	
+	</body>
 </html>

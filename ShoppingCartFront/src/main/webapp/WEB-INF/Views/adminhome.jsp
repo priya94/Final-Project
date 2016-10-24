@@ -15,15 +15,15 @@
 	
  <table>
  <tr>
- <td ><a href="manageCatagories"
+ <td ><a href="manageCategories" class="btn btn-primary"
  style="textfont-size: 200%; font-family:verdana;">Manage Categories</a><br>
 </td>
 
-<td><a href="manageProducts"
+<td><a href="manageProducts" class="btn btn-info"
  style="textfont-size: 200%; font-family:verdana; ">Manage Products</a><br>
 </td>
 
-<td><a href="manageSuppliers"
+<td><a href="manageSuppliers" class="btn btn-primary"
  style="textfont-size: 200%; font-family:verdana;">Manage Suppliers</a><br>
 </td>
  
