@@ -6,13 +6,11 @@
 Welcome to Final-Project's documentation!
 =========================================
 Sample test Documentation
-print "This is a doctest block."$
->> "This is a doctest block."$
 
 # Set the Slumber API host
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+:maxdepth: 2
+:caption: Contents:
 
 
 
